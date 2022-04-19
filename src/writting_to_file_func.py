@@ -68,4 +68,44 @@ f.close()
 print(f.closed)
 
 
+print('###############################')
+
+f = open('../data_file/example.txt', 'a')
+print(f.tell())
+
+size = os.stat('../data_file/example.txt').st_size
+print(size)
+
+f.close()
+
+print('#############################################')
+
+f = open('../data_file/example.txt', 'a')
+f.truncate(37)
+f.close()
+
+f = open('../data_file/example.txt', 'r')
+print(f.read())
+f.close()
+
+f = open('../data_file/example.txt', 'r+')
+f.writelines("We are doing an 'r+' operation")
+f.close()
+
+f = open('../data_file/example.txt', 'r')
+print(f.read())
+f.close()
+
+print('###############################################')
+
+f = open('../data_file/example.txt', 'a+')
+f.writelines('\nWhat does writing in "a+" do?')
+f.close()
+
+f = open('../data_file/example.txt', 'r')
+print(f.read())
+f.close()
+
+os.rename('../data_file/example.txt', '../data_file/changed_name.txt')
+# os.remove('../data_file/changed_name.txt')
 
